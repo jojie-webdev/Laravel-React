@@ -18,3 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+use App\User;
+use App\Http\Resources\User as UserResource;
+
+Route::get('/user', function () {
+    return new UserResource(User::find(1));
+});
